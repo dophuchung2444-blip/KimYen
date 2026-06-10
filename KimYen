@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>gửi bà chã</title>
+<style>
+body{
+    background:#ffe6f0;
+    font-family:Arial;
+    text-align:center;
+    padding-top:100px;}
+h1{color:#ff1493;}
+button{padding:15px 30px;font-size:20px;}
+</style>
+</head>
+<body>
+<h1>Tớ thích cậu ❤️</h1>
+<p>Từ lâu rồi nhưng giờ mới dám nói...</p>                  
+<button onclick="alert('Cậu làm người yêu tớ nhé? 💕')">
+Ấn vào đây nè
+</button>
+</body>
+</html>
