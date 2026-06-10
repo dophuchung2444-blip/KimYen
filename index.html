@@ -3,52 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dành Cho Cậu ❤️</title>
+<title>Dành Riêng Cho Cậu ❤️</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
 body{
+    margin:0;
     height:100vh;
     overflow:hidden;
-    background:linear-gradient(135deg,#ff9ec4,#ffd6e7);
     display:flex;
     justify-content:center;
     align-items:center;
+    background:linear-gradient(135deg,#ff7eb3,#ff758c);
     font-family:Arial,sans-serif;
 }
 
-.container{
-    text-align:center;
-    background:rgba(255,255,255,.2);
+.box{
+    background:rgba(255,255,255,.15);
     backdrop-filter:blur(10px);
     padding:40px;
     border-radius:25px;
+    text-align:center;
     color:white;
+    width:90%;
     max-width:700px;
 }
 
 h1{
-    font-size:3em;
-    margin-bottom:20px;
-}
-
-p{
-    font-size:1.3em;
-    line-height:1.8;
+    font-size:40px;
 }
 
 button{
-    margin-top:25px;
-    padding:15px 30px;
+    padding:12px 25px;
     border:none;
-    border-radius:50px;
-    font-size:18px;
+    border-radius:30px;
     cursor:pointer;
+    font-size:18px;
+    margin:10px;
 }
 
 #yes{
@@ -57,14 +47,13 @@ button{
 
 #no{
     position:absolute;
-    background:#ff4f81;
+    background:#ff1744;
     color:white;
 }
 
 .heart{
     position:absolute;
-    color:red;
-    animation:float 8s linear infinite;
+    animation:float 6s linear infinite;
 }
 
 @keyframes float{
@@ -82,56 +71,71 @@ button{
 
 <body>
 
-<div class="container">
-    <h1>Gửi đến cậu ❤️</h1>
+<div class="box">
+    <h1>❤️ Gửi Đến Cậu ❤️</h1>
 
     <p>
-        Có thể đây không phải cách hoàn hảo nhất,<br>
-        nhưng tớ muốn nói rằng...<br><br>
-
-        Tớ thích cậu rất nhiều. 🌷
+        Tớ đã suy nghĩ rất lâu mới dám làm trang web này.<br><br>
+        Tớ thích cậu rất nhiều 🌷
     </p>
 
-    <button id="yes" onclick="accept()">Đồng ý 💕</button>
+    <h3 id="days"></h3>
+
+    <button id="yes" onclick="yes()">Đồng Ý 💕</button>
 </div>
 
 <button id="no">Không 😶</button>
 
 <script>
-function accept(){
-    document.body.innerHTML=`
-    <div style="
-    text-align:center;
-    color:white;
-    font-family:Arial;
-    ">
-    <h1 style="font-size:60px">❤️</h1>
-    <h1>Cảm ơn cậu!</h1>
-    <p>Tớ sẽ cố gắng làm cậu hạnh phúc ✨</p>
-    </div>`;
+
+// Đổi ngày này thành ngày m gặp crush
+const startDate = new Date("2025-01-01");
+
+const today = new Date();
+
+const diff = Math.floor(
+(today - startDate)/(1000*60*60*24)
+);
+
+document.getElementById("days").innerHTML =
+`Đã thích cậu được ${diff} ngày ❤️`;
+
+function yes(){
+document.body.innerHTML=`
+<div style="
+text-align:center;
+color:white;
+font-family:Arial;
+">
+<h1>🎉</h1>
+<h1>Cảm ơn cậu ❤️</h1>
+<h2>Tớ hứa sẽ trân trọng cậu 💕</h2>
+</div>
+`;
 }
 
 const noBtn=document.getElementById("no");
 
 noBtn.addEventListener("mouseover",()=>{
-    noBtn.style.left=Math.random()*90+"vw";
-    noBtn.style.top=Math.random()*90+"vh";
+noBtn.style.left=Math.random()*90+"vw";
+noBtn.style.top=Math.random()*90+"vh";
 });
 
-function createHeart(){
-    const heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="❤️";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.fontSize=(20+Math.random()*30)+"px";
-    document.body.appendChild(heart);
+function heart(){
+const h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(20+Math.random()*30)+"px";
+document.body.appendChild(h);
 
-    setTimeout(()=>{
-        heart.remove();
-    },8000);
+setTimeout(()=>{
+h.remove();
+},6000);
 }
 
-setInterval(createHeart,300);
+setInterval(heart,250);
+
 </script>
 
 </body>
